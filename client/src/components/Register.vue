@@ -35,11 +35,11 @@ export default {
   methods: {
     async register () {
       console.log('register button was clicked with info:', this.email, this.password)
-      const response = await AuthenticationService.register({
+      await AuthenticationService.register({
         email: this.email,
         password: this.password
       })
-      console.log(response.data)
+      // console.log(response.data)
     }
   }
 }
