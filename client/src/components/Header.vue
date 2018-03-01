@@ -1,10 +1,9 @@
 <template>
-<v-toolbar fixed class="blue-grey lighten-4">
+<v-toolbar fixed class="grey lighten-1">
   <v-toolbar-title class="mr-4">
-<span class="home">
-    <router-link to="HelloWorld">
+<span class="home"
+    @click="navigateTo({name: 'root'})">
     HeaderTitle
-    </router-link>
   </span>
   </v-toolbar-title>
 
@@ -13,21 +12,32 @@
         Browse
       </v-btn>
       </v-toolbar-items>
+
       <v-spacer></v-spacer>
+
         <v-toolbar-items>
-          <router-link to="register">
-          <v-btn flat dark>
+          <v-btn flat dark
+            @click="navigateTo({name: 'login'})">
+            Login
+          </v-btn>
+
+          <v-btn flat dark
+            @click="navigateTo({name: 'register'})">
             Sign up
           </v-btn>
-          </router-link>
         </v-toolbar-items>
-</v-toolbar>
+      </v-toolbar>
 </template>
 
 <script>
 export default {
-
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
+  }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
